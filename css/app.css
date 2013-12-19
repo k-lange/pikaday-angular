@@ -77,6 +77,10 @@ pre:after {
   max-width: 100%;
 }
 
+#marked-body {
+  display:none;
+}
+
 /* wrap
 ================================================== */
 

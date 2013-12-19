@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>angular-pikaday by nverba</title>
-    <meta name="description" content="An AngularJS Directive wraper for the Pikaday datepicker">
+    <meta name="description" content="An AngularJS directive wraper for the Pikaday datepicker">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" href="lib/highlight/styles/github.css">
   </head>
   <body>
 
@@ -21,15 +22,23 @@
     </div>
 
     <div id="content">
-      <div class="wrap">
+      <div class="wrap" id="marked-output">
+        <div id="marked-body">
 
-        <pre><code>
-          &lt;input pikaday=&quot;myPicker1&quot;&gt;&lt;/input&gt;
-          &lt;span&gt;{{ myPicker1.getDate() | date:'MM/dd/yyyy' }}&lt;/span&gt;
-        </code></pre>
+<!-- MARKDOWN CONTENT /////////////////////////////////////////////////////////////////////////////////// -->
 
-        <script src="js/markdown.js"></script>
+# Examples
 
+Basic datepicker
+
+```
+<input pikaday="firstDate"></input>
+<span>{{ firstDate.getDate() | date:'MM/dd/yyyy' }}</span>
+
+```
+<!-- CLOSE MARKDOWN CONTENT ///////////////////////////////////////////////////////////////////////////// -->
+
+        </div>
       </div>
     </div>
 
@@ -39,6 +48,21 @@
       </div>
     </div>
 
+    <script src="lib/marked.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/moment.min.js"></script>
+    <script src="lib/pikaday.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/angular-pikaday.js"></script>
+    <script src="lib/highlight/highlight.pack.js"></script>
+
+    <script>
+      marked(document.getElementById("marked-body").innerHTML, {gfm: true}, function (err, content) {
+        if (err) throw err;
+        document.getElementById("marked-output").innerHTML = content;
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
 
   </body>
 </html>
