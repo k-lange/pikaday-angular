@@ -32,7 +32,7 @@
 
 Include the `pikaday` attribute, and assign it to a scope property.
 
-``` language-HTML ng-non-bindable
+``` language-HTML
 <input pikaday="myProperty">
 ```
 
@@ -57,7 +57,7 @@ Include the `pikaday` attribute, and assign it to a scope property.
 You can then access the picker object and it's methods from the scope property.
 
 
-``` language-HTML ng-non-bindable
+``` language-HTML
 <span> Output {{ myProperty.getDate() | date:'MM/dd/yyyy' }}</span>
 
 ```
@@ -89,7 +89,7 @@ The `getDate()` method returns a JavaScript date object that can be formatted us
 
 ### Basic datepicker
 
-``` language-HTML ng-non-bindable
+``` language-HTML
 <input pikaday="example1">
 Output <span>{{ example1.getDate() | date:'MM/dd/yyyy' }}</span>
 
@@ -102,7 +102,7 @@ Output <span>{{ example1.getDate() | date:'MM/dd/yyyy' }}</span>
 
 ### Min and max dates with default date set
 
-``` language-HTML ng-non-bindable
+``` language-HTML
 <input pikaday="example2" set-default-date="true" default-date="01/17/2007" min-date="01/07/2007" max-date="01/25/2007">
 <span>{{ example2.getDate() | date:'MM/dd/yyyy' }}</span>
 
@@ -115,7 +115,7 @@ Output <span>{{ example1.getDate() | date:'MM/dd/yyyy' }}</span>
 
 ### Show month after year in title and add suffix to year for i18n compatability
 
-``` language-HTML ng-non-bindable
+``` language-HTML
 <input pikaday="example3" year-range="2" show-month-after-year="true" year-suffix="xxx">
 <span>{{ example3.getDate() | date:'MM/dd/yyyy' }}</span>
 
@@ -128,7 +128,7 @@ Output <span>{{ example1.getDate() | date:'MM/dd/yyyy' }}</span>
 
 ### Change first day of week to monday
 
-``` language-HTML ng-non-bindable
+``` language-HTML
 <input pikaday="example4" first-day="1">
 <span>{{ example4.getDate() | date:'MM/dd/yyyy' }}</span>
 
@@ -141,7 +141,7 @@ Output <span>{{ example1.getDate() | date:'MM/dd/yyyy' }}</span>
 
 ### Un-bound the datepicker from the input field
 
-``` language-HTML ng-non-bindable
+``` language-HTML
 <input pikaday="example5" bound="false">
 <span>{{ example5.getDate() | date:'MM/dd/yyyy' }}</span>
 
@@ -154,7 +154,7 @@ Output <span>{{ example1.getDate() | date:'MM/dd/yyyy' }}</span>
 
 ### Use a button to trigger the datepicker
 
-``` language-HTML ng-non-bindable
+``` language-HTML
 <button pikaday="example6">Select date</button>
 <span>{{ example6.getDate() | date:'MM/dd/yyyy' }}</span>
 
@@ -167,7 +167,7 @@ Output <span>{{ example1.getDate() | date:'MM/dd/yyyy' }}</span>
 
 ### Target a seperate element to trigger the datepicker
 
-``` language-HTML ng-non-bindable
+``` language-HTML
 <input pikaday="example7" trigger-id="date-picker">
 <button id="date-picker">Select date</button>
 <span>{{ example7.getDate() | date:'MM/dd/yyyy' }}</span>
@@ -182,7 +182,7 @@ Output <span>{{ example1.getDate() | date:'MM/dd/yyyy' }}</span>
 
 ### Update the datepicker programmatically
 
-``` language-HTML ng-non-bindable
+``` language-HTML
 # In the controller
 $scope.set = function (d) {
   $scope.example8.setDate(new Date(d));
