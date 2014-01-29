@@ -32,6 +32,8 @@
 
 __angular-pikaday__ aims to make using __Pikaday__ with __Angular.js__ as simple as possible, exposing configurable features and methods in a simple clean way.
 
+Tested and working with [Pikaday Release version 1.2.0](https://github.com/dbushell/Pikaday/releases/tag/1.2.0)
+
 ## Basic usage
 
 
@@ -42,7 +44,7 @@ Include the `pikaday` attribute and assign a scope.
 
 ```
 
-<input pikaday="myPickerObject" position="bottom right">
+<input pikaday="myPickerObject2">
 
 
 The date string returned to the input field will be pre-formatted by __Pikaday__, although formatting can be configured manually with the `format` attribute, if __moment.js__ is included.
@@ -51,7 +53,7 @@ The date string returned to the input field will be pre-formatted by __Pikaday__
 
 ## Methods
 
-__angular-pikaday__ binds the Pikaday object to the named scope and supports several methods for retrieving and updating the date.
+__angular-pikaday__ binds the Pikaday picker object to the named scope and supports several methods for retrieving and updating the date.
 
 For example, the `myPickerObject.getDate()` method can be user to retrieve a JavaScript Date object, which can easily be formatted using Angular.js' built in formatters.
 
@@ -61,7 +63,7 @@ For example, the `myPickerObject.getDate()` method can be user to retrieve a Jav
 
 ```
 
-<h3>` Date = {{ myPickerObject.getDate() | date:'MM/dd/yyyy' }}`</h3>
+<h3><input pikaday="myPickerObject"> ` Date = {{ myPickerObject.getDate() | date:'MM/dd/yyyy' }}`</h3>
 
 To see a complete list of methods available to the Pikaday object, check out the [Pikaday README on Github](https://github.com/dbushell/Pikaday).
 
