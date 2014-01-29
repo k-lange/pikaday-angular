@@ -20,14 +20,21 @@ body {
   color: #222;
 }
 
+blockquote {
+  border-left: 7px solid grey;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
 h2 {
   font-size: 1.8em;
-  margin-top: 3em;
+  border-bottom: 1px solid #999;
 }
 
 h3 {
   font-size: 1.4em;
-  margin-top: 2em;
 }
 
 a {

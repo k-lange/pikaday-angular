@@ -1,7 +1,7 @@
 app = angular.module('PikadayDemo', [])
   .controller('Ctrl', function($scope) {
 
-    $scope.a = function (e) {
-      $scope.sample3.setDate(new Date());
-    }
-})
+  $scope.set = function (d) {
+    $scope.example6.setDate(new Date(d));
+  };
+});
