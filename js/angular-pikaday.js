@@ -1,6 +1,7 @@
 'use strict';
 
-app.directive('pikaday', function() {
+angular.module('angularPikaday', [])
+  .directive('pikaday', function() {
   return {
     restrict: 'A',
     scope: {

@@ -1,4 +1,4 @@
-app = angular.module('PikadayDemo', [])
+app = angular.module('PikadayDemo', ['angularPikaday'])
   .controller('Ctrl', function($scope) {
 
   $scope.set = function (d) {
