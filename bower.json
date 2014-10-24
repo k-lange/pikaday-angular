@@ -1,0 +1,11 @@
+{
+  "name": "pikaday-angular-examples",
+  "version": "0.0.1",
+  "homepage": "https://github.com/nverba/pikaday-angular",
+  "authors": [
+    "nverba <distantstate@gmail.com>"
+  ],
+  "description": "Examples page for pikaday-angular bower component.",
+  "license": "MIT",
+  "private": true
+}

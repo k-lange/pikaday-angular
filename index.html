@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <link rel="stylesheet" type="text/css" href="css/pikaday.css">
-    <link rel="stylesheet" href="lib/highlight/styles/github.css">
+    <link rel="stylesheet" href="bower_components/highlightjs/styles/github.css">
 
-    <script src="lib/angular.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
   </head>
   <body ng-controller="Ctrl">
 
@@ -184,8 +184,8 @@ $scope.set = function (d) {
       </div>
     </div>
 
-    <script src="lib/marked.js"></script>
-    <script src="lib/highlight/highlight.pack.js"></script>
+    <script src="bower_components/marked/lib/marked.js"></script>
+    <script src="bower_components/highlightjs/highlight.pack.js"></script>
 
     <script>
         var mark = document.getElementById("marked");
@@ -193,10 +193,10 @@ $scope.set = function (d) {
         hljs.initHighlightingOnLoad();
     </script>
 
-    <script src="lib/moment.min.js"></script>
-    <script src="lib/pikaday.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/pikaday/pikaday.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/angular-pikaday.js"></script>
+    <script src="bower_components/pikaday-angular/pikaday-angular.js"></script>
 
   </body>
 </html>
