@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="PikadayDemo">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>pikaday-angular by nverba</title>
@@ -11,7 +11,7 @@
 
     <script src="bower_components/angular/angular.js"></script>
   </head>
-  <body ng-controller="Ctrl">
+  <body>
 
     <div id="hero">
       <div class="wrap">
@@ -25,8 +25,8 @@
     </div>
 
     <div id="content">
-      <div class="wrap">
-        <div id="marked">
+      <div class="wrap" ng-app="PikadayDemo">
+        <div id="marked" ng-controller="Ctrl">
 
 <!-- MARKDOWN CONTENT /////////////////////////////////////////////////////////////////////////////////// -->
 
@@ -157,7 +157,7 @@ __pikaday-angular__ accepts most of Pikaday's configuration options as HTML attr
 ### Update the datepicker programmatically
 
 ```
-# In the Angular.js controller
+// In the Angular.js controller
 $scope.set = function (d) {
   $scope.example6.setDate(new Date(d));
 }
@@ -171,6 +171,43 @@ $scope.set = function (d) {
 
 <input pikaday="example6" bound="false">
 <button ng-click="set('01/01/2014')">1st Jan 2014</button>
+
+<!-- CLOSE MARKDOWN CONTENT ///////////////////////////////////////////////////////////////////////////// -->
+
+        </div>
+      </div>
+
+      <div class="wrap" id="Pikadayi18nDemo">
+        <div id="i18n_marked" ng-controller="Ctrl2">
+
+<!-- MARKDOWN CONTENT /////////////////////////////////////////////////////////////////////////////////// -->
+
+### Change the language using i18n/moment.js
+
+```js
+// In the Angular.js controller
+angular.module('yourApp', ['angularPikaday'])
+  .config(['pikadayProvider', function(pikadayProvider) {
+    moment.locale("de"); // config moment location, defaults to 'en' or most recently loaded moment.js i18n file
+    pikadayProvider.setConfig({
+      i18n: {
+        previousMonth : 'Vorheriger Monat',
+        nextMonth     : 'Nächster Monat',
+        months        : moment.localeData()._months, // or literally ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
+        weekdays      : moment.localeData()._weekdays,
+        weekdaysShort : moment.localeData()._weekdaysShort
+      }
+  });
+}])
+```
+
+``` language-HTML
+<input pikaday="example7" bound="false">
+<script src="bower_components/moment/locale/de.js"></script>
+
+```
+
+<input pikaday="example7" bound="false">
 
 <!-- CLOSE MARKDOWN CONTENT ///////////////////////////////////////////////////////////////////////////// -->
 
@@ -190,13 +227,19 @@ $scope.set = function (d) {
     <script>
         var mark = document.getElementById("marked");
         mark.innerHTML = marked(mark.innerHTML);
+
+        var i18n = document.getElementById("i18n_marked");
+        i18n.innerHTML = marked(i18n.innerHTML);
+
         hljs.initHighlightingOnLoad();
     </script>
 
     <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/moment/locale/de.js"></script>
     <script src="bower_components/pikaday/pikaday.js"></script>
     <script src="js/app.js"></script>
     <script src="bower_components/pikaday-angular/pikaday-angular.js"></script>
+    <script src="js/appi18n.js"></script>
 
   </body>
 </html>
