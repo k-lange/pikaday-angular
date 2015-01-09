@@ -40,16 +40,14 @@ __pikaday-angular__ is an AngularJS directive wraper that aims to make using __P
 
 ## Basic usage
 
-Include the `angularPikaday` module as a dependency.
-
-```
+```js
+//Include the `angularPikaday` module as a dependency.
 app = angular.module('YourApp', ['angularPikaday'])
 
 ```
 
-Include the `pikaday` attribute and assign a scope.
-
 ``` language-HTML
+<!-- Include the `pikaday` attribute and assign a scope. -->
 <input pikaday="myPickerObject">
 
 ```
@@ -57,21 +55,16 @@ Include the `pikaday` attribute and assign a scope.
 <input pikaday="myPickerObject2">
 
 
-The date string returned to the input field will be pre-formatted by __Pikaday__, although formatting can be configured manually with the `format` attribute, if __moment.js__ is included.
+_The date string returned to the input field will be pre-formatted by __Pikaday__, although formatting can be configured manually with the `format` attribute, if __moment.js__ is included._
 
 
 
 ## Methods
 
-__pikaday-angular__ binds the Pikaday picker object to the named scope and supports several methods for retrieving and updating the date.
+__pikaday-angular__ binds the Pikaday picker object to the named scope and supports several methods for retrieving and updating the date. For example, the `myPickerObject.getDate()` method can be used to retrieve a JavaScript Date object, which can easily be formatted using Angular.js' built in formatters.
 
-For example, the `myPickerObject.getDate()` method can be user to retrieve a JavaScript Date object, which can easily be formatted using Angular.js' built in formatters.
+<pre><code ng-non-bindable>Date = {{ myPickerObject.getDate() | date:'MM/dd/yyyy' }}</code></pre>
 
-
-```
-<span> Date = {{ myPickerObject.getDate() | date:'MM/dd/yyyy' }}</span>
-
-```
 
 <h4><input pikaday="myPickerObject"> ` Date = {{ myPickerObject.getDate() | date:'MM/dd/yyyy' }}`</h4>
 
