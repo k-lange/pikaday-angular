@@ -1,9 +1,13 @@
-angular.module('PikadayDemo', ['angularPikaday'])
-  .controller('Ctrl', function($scope) {
+(function () {
 
-  moment.locale("en");
+	'use strict';
 
-  $scope.set = function (d) {
-    $scope.example6.setDate(new Date(d));
-  };
-});
+	angular.module('PikadayDemo', ['angularPikaday'])
+	  .controller('Ctrl', function($scope) {
+
+		  $scope.set = function (d) {
+		    $scope.example6.setDate(new Date(d));
+		  };
+		});
+
+})();

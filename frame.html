@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>pikaday-angular by nverba</title>
+   
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/pikaday.css">
+    <link rel="stylesheet" href="bower_components/highlightjs/styles/github.css">
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/moment/locale/de.js"></script>
+  </head>
+  <body>
+
+    <div id="content">
+      <div class="wrap wrap-frame" ng-app="Pikadayi18nDemo">
+        <div id="marked" class="frame" ng-controller="Ctrl">
+
+<!-- MARKDOWN CONTENT /////////////////////////////////////////////////////////////////////////////////// -->
+
+### Change the language using i18n/moment.js
+
+```language-HTML
+<!-- include the desired locale file, this will automatically configure moment() and pikadays output to the desired language -->
+<script src="bower_components/moment/locale/de.js"></script>
+```
+
+```js
+// In the Angular.js controller, specify the interface translations, either literally or with moment
+angular.module('yourApp', ['angularPikaday'])
+  .config(['pikadayProvider', function(pikadayProvider) {
+    moment.locale("de"); // config moment location, defaults to 'en' or most recently loaded moment.js i18n file
+    pikadayProvider.setConfig({
+      i18n: {
+        previousMonth : 'Vorheriger Monat',
+        nextMonth     : 'Nächster Monat',
+        months        : moment.localeData()._months, // or literally ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
+        weekdays      : moment.localeData()._weekdays,
+        weekdaysShort : moment.localeData()._weekdaysShort
+      }
+  });
+}])
+```
+<input pikaday="example1" bound="false">
+
+<!-- CLOSE MARKDOWN CONTENT ///////////////////////////////////////////////////////////////////////////// -->
+
+        </div>
+      </div>
+    </div>
+
+    <script src="bower_components/marked/lib/marked.js"></script>
+    <script src="bower_components/highlightjs/highlight.pack.js"></script>
+
+    <script>
+        var i18n = document.getElementById("marked");
+        i18n.innerHTML = marked(i18n.innerHTML);
+
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script src="bower_components/pikaday/pikaday.js"></script>
+    <script src="bower_components/pikaday-angular/pikaday-angular.js"></script>
+    <script src="js/appi18n.js"></script>
+
+
+  </body>
+</html>

@@ -1,7 +1,19 @@
-angular.module('angularPikaday', [])
-  .provider('pikaday', function() {
+(function () {
 
-    'use strict';
+  'use strict';
+
+  /**
+   * @name pikaday-angular module
+   * @desc directive parent module
+   */
+
+  angular.module('angularPikaday', [])
+    .provider('pikaday', pikadayProvider)
+    .directive('pikaday', ['pikaday', pikadayDirective]);
+
+  function pikadayProvider() {
+
+    /*jshint validthis: true */
 
     var config = {};
 
@@ -12,11 +24,9 @@ angular.module('angularPikaday', [])
     this.setConfig = function setConfig(pikadayConfig) {
       config = pikadayConfig;
     };
+  }
 
-  })
-  .directive('pikaday', ['pikaday', function(pikaday) {
-
-    'use strict';
+  function pikadayDirective(pikaday) {
 
     return {
       restrict: 'A',
@@ -55,6 +65,7 @@ angular.module('angularPikaday', [])
             });
           }
         });
+
         scope.pikaday = picker;
 
         scope.$on('$destroy', function () {
@@ -62,4 +73,5 @@ angular.module('angularPikaday', [])
         });
       }
     };
-  }]);
+  }
+})();

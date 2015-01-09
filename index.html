@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="bower_components/highlightjs/styles/github.css">
 
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
   </head>
   <body>
 
@@ -19,7 +20,7 @@
           <img src="img/screenshot.png" class="screenshot" alt="Pikaday screenshot" />
           <h1>pikaday-angular</h1>
         </div>
-        <h3 class="tagline">An AngularJS directive wraper for the <a href="https://github.com/dbushell/Pikaday" target="_blank">Pikaday</a> datepicker</h3>
+        <h4 class="tagline">An AngularJS directive wraper for the <a href="https://github.com/dbushell/Pikaday" target="_blank">Pikaday</a> datepicker</h4>
         <a href="https://github.com/nverba/pikaday-angular" target="_blank" class="button github-button">View on GitHub</a>
       </div>
     </div>
@@ -34,7 +35,8 @@ Tested and working with [Pikaday Release version 1.2.0](https://github.com/dbush
 
 __pikaday-angular__ is an AngularJS directive wraper that aims to make using __Pikaday__ with __Angular__ as simple as possible, exposing __Pikaday's__ configurable features as HTML attributes, handled by the directive.
 
-### __Pikaday__ [source code & documentation](https://github.com/dbushell/Pikaday)
+#### __Pikaday__ [source code & documentation](https://github.com/dbushell/Pikaday)
+
 
 ## Basic usage
 
@@ -71,7 +73,7 @@ For example, the `myPickerObject.getDate()` method can be user to retrieve a Jav
 
 ```
 
-<h3><input pikaday="myPickerObject"> ` Date = {{ myPickerObject.getDate() | date:'MM/dd/yyyy' }}`</h3>
+<h4><input pikaday="myPickerObject"> ` Date = {{ myPickerObject.getDate() | date:'MM/dd/yyyy' }}`</h4>
 
 To see a complete list of methods available to the Pikaday object, check out the [Pikaday README on Github](https://github.com/dbushell/Pikaday).
 
@@ -106,7 +108,6 @@ __pikaday-angular__ accepts most of Pikaday's configuration options as HTML attr
 
 <input pikaday="example1" bound="false">
 
-<hr>
 
 ### Target a seperate element to trigger the datepicker
 
@@ -119,7 +120,6 @@ __pikaday-angular__ accepts most of Pikaday's configuration options as HTML attr
 <input pikaday="example2" trigger-id="date-picker">
 <button id="date-picker">Select date</button>
 
-<hr>
 
 ### Min and max dates with default date set
 
@@ -130,7 +130,6 @@ __pikaday-angular__ accepts most of Pikaday's configuration options as HTML attr
 
 <input pikaday="example3" set-default-date="true" default-date="01/17/2007" min-date="01/07/2007" max-date="01/25/2007">
 
-<hr>
 
 ### Show month after year in title and add suffix to year for i18n compatability
 
@@ -141,7 +140,6 @@ __pikaday-angular__ accepts most of Pikaday's configuration options as HTML attr
 
 <input pikaday="example4" year-range="2" show-month-after-year="true" year-suffix="xxx">
 
-<hr>
 
 ### Change first day of week to monday
 
@@ -152,7 +150,6 @@ __pikaday-angular__ accepts most of Pikaday's configuration options as HTML attr
 
 <input pikaday="example5" first-day="1">
 
-<hr>
 
 ### Update the datepicker programmatically
 
@@ -175,43 +172,8 @@ $scope.set = function (d) {
 <!-- CLOSE MARKDOWN CONTENT ///////////////////////////////////////////////////////////////////////////// -->
 
         </div>
-      </div>
 
-      <div class="wrap" id="Pikadayi18nDemo">
-        <div id="i18n_marked" ng-controller="Ctrl2">
-
-<!-- MARKDOWN CONTENT /////////////////////////////////////////////////////////////////////////////////// -->
-
-### Change the language using i18n/moment.js
-
-```js
-// In the Angular.js controller
-angular.module('yourApp', ['angularPikaday'])
-  .config(['pikadayProvider', function(pikadayProvider) {
-    moment.locale("de"); // config moment location, defaults to 'en' or most recently loaded moment.js i18n file
-    pikadayProvider.setConfig({
-      i18n: {
-        previousMonth : 'Vorheriger Monat',
-        nextMonth     : 'Nächster Monat',
-        months        : moment.localeData()._months, // or literally ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
-        weekdays      : moment.localeData()._weekdays,
-        weekdaysShort : moment.localeData()._weekdaysShort
-      }
-  });
-}])
-```
-
-``` language-HTML
-<input pikaday="example7" bound="false">
-<script src="bower_components/moment/locale/de.js"></script>
-
-```
-
-<input pikaday="example7" bound="false">
-
-<!-- CLOSE MARKDOWN CONTENT ///////////////////////////////////////////////////////////////////////////// -->
-
-        </div>
+        <iframe id="i18n" src="frame.html"></iframe>
       </div>
     </div>
 
@@ -228,18 +190,13 @@ angular.module('yourApp', ['angularPikaday'])
         var mark = document.getElementById("marked");
         mark.innerHTML = marked(mark.innerHTML);
 
-        var i18n = document.getElementById("i18n_marked");
-        i18n.innerHTML = marked(i18n.innerHTML);
-
         hljs.initHighlightingOnLoad();
     </script>
 
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/moment/locale/de.js"></script>
     <script src="bower_components/pikaday/pikaday.js"></script>
-    <script src="js/app.js"></script>
     <script src="bower_components/pikaday-angular/pikaday-angular.js"></script>
-    <script src="js/appi18n.js"></script>
+    <script src="js/app.js"></script>
+
 
   </body>
 </html>
