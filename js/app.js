@@ -8,6 +8,10 @@
 		  $scope.set = function (d) {
 		    $scope.example6.setDate(new Date(d));
 		  };
+
+      $scope.onPikadaySelect = function onPikadaySelect(pikaday) {
+        alert('Ta Da!');
+      };
 		});
 
 })();

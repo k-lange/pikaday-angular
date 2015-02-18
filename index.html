@@ -162,6 +162,21 @@ $scope.set = function (d) {
 <input pikaday="example6" bound="false">
 <button ng-click="set('01/01/2014')">1st Jan 2014</button>
 
+### Pass custom `onSelect` handler
+
+```
+// In the Angular.js controller
+$scope.onPikadaySelect = function onPikadaySelect(pikaday) {
+  alert('Ta Da!');
+};
+```
+
+``` language-HTML
+<input pikaday="myPickerObject" on-select="onPikadaySelect(pikaday)">
+```
+
+<input pikaday="example7" on-select="onPikadaySelect(pikaday)">
+
 <!-- CLOSE MARKDOWN CONTENT ///////////////////////////////////////////////////////////////////////////// -->
 
         </div>
