@@ -10,7 +10,7 @@
 		  };
 
       $scope.onPikadaySelect = function onPikadaySelect(pikaday) {
-        alert('Ta Da!');
+        alert(pikaday.toString());
       };
 		});
 
