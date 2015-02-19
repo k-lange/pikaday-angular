@@ -22,6 +22,26 @@ Include the `pikaday` attribute and assign a scope.
 
 The date string returned to the input field will be pre-formatted by __Pikaday__, although formatting can be configured manually with the `format` attribute, if __moment.js__ is included.
 
+## i18n
+
+If you want to customize the used wordings, you can inject a custom object via the `pikadayProvider`.
+
+Example:
+
+```
+angular.module('YourApp', ['angularPikaday'])
+  .config(['pikadayProvider', function(pikadayProvider) {
+    pikadayProvider.setConfig({
+      i18n: {
+        previousMonth : 'Previous Month',
+        nextMonth     : 'Next Month',
+        months        : ['January','February','March','April','May','June','July','August','September','October','November','December'],
+        weekdays      : ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+        weekdaysShort : ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+      }
+  })
+}])
+```
 
 
 ## Methods
@@ -54,6 +74,13 @@ __pikaday-angular__ accepts most of __Pikaday's__ configuration options as HTML 
 - `is-r-t-l` reverse the calendar for right-to-left languages (default false)
 - `year-suffix` additional text to append to the year in the title
 - `show-month-after-year` render the month after year in the title (default false)
+
+In addition a custom `onSelect` handler can be passed - it is invoked
+with the `Pikaday` instance as sole argument.
+
+```html
+<input pikaday="myPickerObject" on-select="onPikadaySelect(pikaday)">
+```
 
 
 Check out the [demo](http://nverba.github.io/pikaday-angular/) for some other examples.

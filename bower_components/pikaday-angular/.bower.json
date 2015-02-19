@@ -1,6 +1,6 @@
 {
   "name": "pikaday-angular",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "authors": [
     "nverba <distantstate@gmail.com>"
   ],
@@ -21,11 +21,11 @@
     "angular": ">=1.2.0",
     "pikaday": "~1.2.0"
   },
-  "_release": "1.0.1",
+  "_release": "1.0.3",
   "_resolution": {
     "type": "version",
-    "tag": "v1.0.1",
-    "commit": "c0797fb5d2bf56f58b706f72060d580e9612275f"
+    "tag": "v1.0.3",
+    "commit": "aa0f5855cfb70308bf5f87560da7cffc80d3fd1b"
   },
   "_source": "git://github.com/nverba/pikaday-angular.git",
   "_target": "~1.0.1",

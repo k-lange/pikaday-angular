@@ -2,16 +2,9 @@
 
   'use strict';
 
-  /**
-   * @name pikaday-angular module
-   * @desc directive parent module
-   */
+  angular.module('angularPikaday', []);
 
-  angular.module('angularPikaday', [])
-    .provider('pikaday', pikadayProvider)
-    .directive('pikaday', ['pikaday', pikadayDirective]);
-
-  function pikadayProvider() {
+  angular.module('angularPikaday').provider('pikaday', function pikadayProviderFn() {
 
     /*jshint validthis: true */
 
@@ -24,14 +17,16 @@
     this.setConfig = function setConfig(pikadayConfig) {
       config = pikadayConfig;
     };
-  }
 
-  function pikadayDirective(pikaday) {
+  });
+
+  angular.module('angularPikaday').directive('pikaday', ['pikaday', function pikadayDirectiveFn(pikaday) {
 
     return {
       restrict: 'A',
       scope: {
         pikaday: '=',
+        onSelect: '&'
       },
       link: function (scope, elem, attrs) {
 
@@ -60,12 +55,14 @@
           showMonthAfterYear: attrs.showMonthAfterYear === 'true',
 
           onSelect: function () {
+            if ('onSelect' in attrs) {
+              scope.onSelect({ pikaday: this });
+            }
             setTimeout(function(){
               scope.$apply();
             });
           }
         });
-
         scope.pikaday = picker;
 
         scope.$on('$destroy', function () {
@@ -73,5 +70,6 @@
         });
       }
     };
-  }
+  }]);
+
 })();
