@@ -1,9 +1,15 @@
-(function () {
+(function (root) {
 
   'use strict';
 
-  angular.module('angularPikaday', []);
+  var Pikaday;
+  if (typeof exports === 'object') {
+    Pikaday = require('Pikaday');
+  } else {
+    Pikaday = root.Pikaday;
+  }
 
+  angular.module('angularPikaday', []);
   angular.module('angularPikaday').provider('pikaday', function pikadayProviderFn() {
 
     /*jshint validthis: true */
@@ -72,4 +78,4 @@
     };
   }]);
 
-})();
+})(this);
