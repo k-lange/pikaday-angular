@@ -4,7 +4,7 @@
 
   var Pikaday;
   if (typeof exports === 'object') {
-    Pikaday = require('Pikaday');
+    Pikaday = require('pikaday');
   } else {
     Pikaday = root.Pikaday;
   }
